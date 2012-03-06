@@ -33,7 +33,7 @@ public class SimpleRenderTest extends AbstractTest {
 			Body<?> body = new DynamicBody(new Circle(10.0f), i, 20*i);
 			world.add(body);
 		}
-		Body<?> floor = new StaticBody(new Rectangle(200.0f, 10.0f), 0, -50.0f);
+		Body<?> floor = new StaticBody(new Rectangle(200.0f, 10.0f), -100, -55.0f);
 		world.add(floor);
 		
 		return world;

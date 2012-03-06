@@ -33,6 +33,8 @@ abstract public class Body<T> {
 	private T userData;
 	/** Whether the body has been attached to a world */
 	private boolean attached;
+	/** The world this body is attached to (if it is attached to one)*/
+	private World world;
 	
 	/**
 	 * Create a new body
@@ -359,6 +361,7 @@ abstract public class Body<T> {
 		jboxBody = jboxWorld.createBody(jboxBodyDef);
 		shape.createInBody(this);
 		attached = true;
+		this.setWorld(world);
 	}
 
 	/**
@@ -566,7 +569,7 @@ abstract public class Body<T> {
 	public boolean getBullet(){
 		return bullet;
 	}
-
+	
 	/**
 	 * Sets the body to active (or inactive).  Inactive objects are essentially
 	 * non-existent, as far as the physics world is concerned.
@@ -576,5 +579,16 @@ abstract public class Body<T> {
 	public void setActive(boolean flag) {
 		assertBodyAttached();
 		jboxBody.setActive(flag);
+	}
+	
+	/**returns the world this body is in*/
+	public World getWorld(){
+		return world;
+	}
+
+	/**sets the world this object is in.
+	 * should really only be done when attached to world*/
+	protected void setWorld(World world) {
+		this.world = world;
 	}
 }

@@ -32,8 +32,8 @@ public class CompoundTest extends AbstractTest {
 		world.setBounds(800, 800);
 		
 		CompoundShape shape = new CompoundShape();
-		shape.add(new Rectangle(20,10).setOffset(-5, 0, 0));
-		shape.add(new Rectangle(10,10).setOffset(0, 10, 0));
+		shape.add(new Rectangle(20,10).setOffset(-15, -5, 0));
+		shape.add(new Rectangle(10,10).setOffset(-5, -5, 0));
 		
 		Body<?> compound = new DynamicBody(shape, 0, 0.0f);
 		compound.setRestitution(0.1f);
@@ -41,9 +41,9 @@ public class CompoundTest extends AbstractTest {
 		compound.setRotation(0.5f);
 		
 		shape = new CompoundShape();
-		shape.add(new Rectangle(10,10));
-		shape.add(new Rectangle(10,10).setOffset(-10, 0, 0));
-		shape.add(new Rectangle(10,10).setOffset(0, 10, 0));
+		shape.add(new Rectangle(10,10).setOffset(-5, -5, 0));
+		shape.add(new Rectangle(10,10).setOffset(-15, -5, 0));
+		shape.add(new Rectangle(10,10).setOffset(-5, 5, 0));
 		
 		// get your winding right or get inverted shapes
 		Polygon spike = new Polygon();
@@ -60,13 +60,13 @@ public class CompoundTest extends AbstractTest {
 		world.add(compound);
 		compound.setRotation(0.5f);
 		
-		Body<?> floor = new StaticBody(new Rectangle(200.0f, 10.0f), 0, -50.0f);
+		Body<?> floor = new StaticBody(new Rectangle(200.0f, 10.0f), -100, -55.0f);
 		floor.setRestitution(0.1f);
 		world.add(floor);
-		floor = new StaticBody(new Rectangle(10.0f, 100.0f), -105.0f, 0);
+		floor = new StaticBody(new Rectangle(10.0f, 100.0f), -110.0f, -50);
 		floor.setRestitution(0.1f);
 		world.add(floor);
-		floor = new StaticBody(new Rectangle(10.0f, 100.0f), 105.0f, 0);
+		floor = new StaticBody(new Rectangle(10.0f, 100.0f), 100.0f, -50);
 		floor.setRestitution(0.1f);
 		world.add(floor);
 		

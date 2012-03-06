@@ -166,7 +166,7 @@ public class WorldCanvas extends Canvas {
 		float height = shape.getHeight();
 		
 		g.setColor(Color.black);
-		g.drawRect((int) -(width/2),(int) -(height/2),(int) width,(int) height);
+		g.drawRect(0,0,(int) width,(int) height);
 	}
 	
 	/**
